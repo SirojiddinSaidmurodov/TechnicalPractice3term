@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Первый урок</title>
+</head>
+<body>
+<h2>Проба скрипта</h2>
+<script src="scripts/Date.js"></script>
+<p id="text">Привет, Народ!</p>
+<input type="button" value="ЛС ВК" onclick="window.open('https://vk.com/al_im.php')">
+<script>
+    function f() {
+        document.getElementById('text').innerText = new Date().toString();
+    }
+    setInterval(f, 100);
+</script>
+
+</body>
+</html>
