@@ -6,11 +6,15 @@
 </head>
 <body>
 <script src="calculator.js"></script>
-<input id="a" type="text">
+<label for="a"></label><input id="a" type="text">
 +
-<input id="b" type="text">
+<label for="b"></label><input id="b" type="text">
 
-<input type="button" value="sum" onclick="sum()">
+<input type="button" value="+" onclick="sum()">
+<input type="button" value="-" onclick="sub()">
+<input type="button" value="*" onclick="multiply()">
+<input type="button" value="/" onclick="divide()">
+<input type="button" value="%" onclick="mod()">
 <p id="result"></p>
 </body>
 </html>
