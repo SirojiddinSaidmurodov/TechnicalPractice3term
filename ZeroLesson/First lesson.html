@@ -7,13 +7,15 @@
 <body>
 <h2>Проба скрипта</h2>
 <script src="scripts/Date.js"></script>
-<p id="text">Привет, Народ!</p>
+<p id="text"></p>
 <input type="button" value="ЛС ВК" onclick="window.open('https://vk.com/al_im.php')">
 <script>
+
     function f() {
-        document.getElementById('text').innerText = new Date().toString();
+        const date = new Date();
+        document.getElementById('text').innerText = date.toString();
     }
-    setInterval(f, 100);
+    setInterval(f, 10);
 </script>
 
 </body>
