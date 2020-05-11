@@ -3,77 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <title>Рекомендательная система</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="all">
+    <style>
+        body {
+            background-color: palegreen;
+        }
+
+        .input {
+            background-color: paleturquoise;
+            color: blue;
+        }
+
+        .error {
+            color: red;
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
-<table align="center">
-    <tr>
-        <td>
-            Фамилия:
-        </td>
-        <td>
-            <input name="surname">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Имя:
-        </td>
-        <td>
-            <input name="first name">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Отчество:
-        </td>
-        <td>
-            <input name="second name">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Пол:
-        </td>
-        <td>
-            <input type="radio" name="sex" value="man">мужской<br/>
-            <input type="radio" name="sex" value="woman">женский<br/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Дата рождения:
-        </td>
-        <td>
-            <input type="date">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Адрес:
-        </td>
-        <td>
-            <input name="address">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Выбранное направление:
-        </td>
-        <td>
-            <input name="faculty">
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <input type="submit" value="Отправить">
-        </td>
-        <td align="center">
-            <input type="reset" value="На главную" onclick="location.href = '../Main.html' ">
-        </td>
-    </tr>
-    <tr>
-
-    </tr>
-</table>
+<script src="script.js"></script>
+<h1 align="center">Рекомендательная система</h1>
+<form name="form">
+    <table align="center">
+        <tr>
+            <td>
+                Фамилия:
+            </td>
+            <td>
+                <input class="input" type="text" id="surname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Имя:
+            </td>
+            <td>
+                <input class="input" id="name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Отчество:
+            </td>
+            <td>
+                <input class="input" id="lastName">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Пол:
+            </td>
+            <td>
+                <input class="input" type="radio" name="sex" id="man">мужской<br/>
+                <input class="input" type="radio" name="sex" id="woman">женский<br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Дата рождения:
+            </td>
+            <td>
+                <input class="input" type="date" id="date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Адрес:
+            </td>
+            <td>
+                <input class="input" id="address">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Выбранное направление:
+            </td>
+            <td>
+                <input class="input" id="faculty">
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input class="input" type="button" value="Отправить" onclick="check()">
+            </td>
+            <td align="center">
+                <input class="input" type="reset" value="На главную" onclick="location.href = '../Main.html' ">
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><input class="input" type="button" value="Сохранить" onclick="save()"></td>
+            <td align="center"><input class="input" type="reset" value="Очистить" onclick="clear()"></td>
+        </tr>
+        <tr>
+            <td><label class="error" id="error"></label></td>
+            <td><label id="result"></label></td>
+        </tr>
+    </table>
+</form>
+<script>recall()</script>
 </body>
 </html>
