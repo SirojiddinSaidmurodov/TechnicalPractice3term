@@ -4,7 +4,7 @@ function check() {
     let lastName = document.getElementById("lastName").value;
     let dateOfBirth = document.getElementById("date").value;
     let address = document.getElementById("address").value;
-    let faculty = document.getElementById("faculty").value;
+    let mark = document.getElementById("mark").value;
     let sex = document.forms.form.elements.sex;
 
     let errorMessage = ''
@@ -17,37 +17,37 @@ function check() {
     if (lastName === '') {
         errorMessage += "Введите отчество!\n"
     }
-    if (!sex[0].checked && !sex[1].checked) {
-        errorMessage += "Укажите пол!\n"
-    }
     if (dateOfBirth === '') {
         errorMessage += "Укажите дату рождения!\n"
     }
     if (address === '') {
-        errorMessage += "Введите адрес проживания!\n"
+        errorMessage += "Введите адрес!\n"
     }
-    if (faculty === '') {
-        errorMessage += "Укажите направление!\n"
+    if (mark === '') {
+        errorMessage += "Укажите оценку!\n"
     }
-    document.getElementById("error").innerText = errorMessage
+    if (errorMessage.length > 0) {
+        document.getElementById("error").innerText = errorMessage
+        document.getElementById("result").innerText = ''
+    } else {
+        document.getElementById("error").innerText = ''
+        return surname + " " + name[0] + ". " + lastName[0] + ".   ::  " + getFaculty(mark)
+    }
 }
 
-function save() {
-    let surname = document.getElementById("surname").value;
-    let name = document.getElementById("name").value;
-    let lastName = document.getElementById("lastName").value;
-    let dateOfBirth = document.getElementById("date").value;
-    let address = document.getElementById("address").value;
-    let faculty = document.getElementById("faculty").value;
-    let sex = document.forms.form.elements.sex;
-
-    localStorage.setItem("surname", surname)
-    localStorage.setItem("name", name)
-    localStorage.setItem("lastname", lastName)
-    localStorage.setItem("date", dateOfBirth)
-    localStorage.setItem("address", address)
-    localStorage.setItem("faculty", faculty)
-    localStorage.setItem("sex", sex)
+function getFaculty(mark) {
+    let faculty = ''
+    if (mark > 90) {
+        faculty = "ПИ"
+    } else if (mark > 75) {
+        faculty = "ПМИ"
+    } else if (mark > 50) {
+        faculty = "ИБ"
+    } else {
+        faculty = "Экзамен не пройден!"
+    }
+    document.getElementById("result").innerText = "Ваш результат: " + faculty
+    return faculty
 }
 
 function clear() {
@@ -55,11 +55,27 @@ function clear() {
 }
 
 function recall() {
-    document.getElementById("surname").value = localStorage.getItem("surname");
-    document.getElementById("name").value = localStorage.getItem("name");
-    document.getElementById("lastName").value = localStorage.getItem("lastname");
-    document.getElementById("date").value = localStorage.getItem("date");
-    document.getElementById("address").value = localStorage.getItem("address");
-    document.getElementById("faculty").value = localStorage.getItem("faculty");
-    document.forms.form.elements.sex = localStorage.getItem("sex");
+
+}
+
+const ul = document.querySelector('ul')
+
+let users = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+let data = JSON.parse(localStorage.getItem('items'))
+data.forEach(item => {
+    contentUpdate(item)
+})
+
+
+function save() {
+    let res = check()
+    users.push(res)
+    localStorage.setItem("items", JSON.stringify(users))
+    contentUpdate(res)
+}
+
+function contentUpdate(text) {
+    let li = document.createElement('li')
+    li.textContent = text
+    ul.append(li)
 }

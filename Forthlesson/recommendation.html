@@ -6,27 +6,31 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="all">
     <style>
         body {
-            background-color: palegreen;
+            background-color: #e4f9f5;
+            color: #40514e;
         }
 
         .input {
-            background-color: paleturquoise;
-            color: blue;
+            background-color: #cbf1f5;
+            color: #40514e;
         }
 
         .error {
-            color: red;
-            background-color: yellow;
+            color: #d72323;
+            background-color: #feff89;
+        }
+
+        .head {
+            color: #11999e
         }
     </style>
 </head>
 <body>
-<script src="script.js"></script>
-<h1 align="center">Рекомендательная система</h1>
+<h1 align="center" class="head">Рекомендательная система</h1>
 <form name="form">
     <table align="center">
         <tr>
-            <td>
+            <td align="right">
                 Фамилия:
             </td>
             <td>
@@ -34,7 +38,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="right">
                 Имя:
             </td>
             <td>
@@ -42,7 +46,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="right">
                 Отчество:
             </td>
             <td>
@@ -50,16 +54,7 @@
             </td>
         </tr>
         <tr>
-            <td>
-                Пол:
-            </td>
-            <td>
-                <input class="input" type="radio" name="sex" id="man">мужской<br/>
-                <input class="input" type="radio" name="sex" id="woman">женский<br/>
-            </td>
-        </tr>
-        <tr>
-            <td>
+            <td align=right>
                 Дата рождения:
             </td>
             <td>
@@ -67,7 +62,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="right">
                 Адрес:
             </td>
             <td>
@@ -75,11 +70,11 @@
             </td>
         </tr>
         <tr>
-            <td>
-                Выбранное направление:
+            <td align="right">
+                Оценка на экзамене:
             </td>
             <td>
-                <input class="input" id="faculty">
+                <input class="input" id="mark">
             </td>
         </tr>
         <tr>
@@ -98,8 +93,14 @@
             <td><label class="error" id="error"></label></td>
             <td><label id="result"></label></td>
         </tr>
+        <tr>
+            <td><p>Предыдущие студенты:</p>
+                <ul></ul>
+            </td>
+        </tr>
     </table>
 </form>
+<script src="script.js"></script>
 <script>recall()</script>
 </body>
 </html>
