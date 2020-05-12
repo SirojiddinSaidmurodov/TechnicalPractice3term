@@ -54,10 +54,6 @@ function clear() {
     localStorage.clear()
 }
 
-function recall() {
-
-}
-
 const ul = document.querySelector('ul')
 
 let users = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
