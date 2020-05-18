@@ -5,7 +5,6 @@ function check() {
     let dateOfBirth = document.getElementById("date").value;
     let address = document.getElementById("address").value;
     let mark = document.getElementById("mark").value;
-    let sex = document.forms.form.elements.sex;
 
     let errorMessage = ''
     if (surname === '') {
@@ -74,4 +73,40 @@ function contentUpdate(text) {
     let li = document.createElement('li')
     li.textContent = text
     ul.append(li)
+}
+
+class User {
+    constructor(surname, name, lastName, dateOfBirth, address, mark, faculty) {
+        this.surname = surname;
+        this.name = name;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
+        this.mark = mark;
+        this.faculty = faculty;
+    }
+}
+
+function saveUser() {
+    let surname = document.getElementById("surname").value;
+    let name = document.getElementById("name").value;
+    let lastName = document.getElementById("lastName").value;
+    let dateOfBirth = document.getElementById("date").value;
+    let address = document.getElementById("address").value;
+    let mark = document.getElementById("mark").value;
+    let faculty = getFaculty(mark);
+
+    let user = new User(surname, name, lastName, dateOfBirth, address, mark, faculty);
+    localStorage.setItem("lastUser", JSON.stringify(user))
+}
+
+function restore() {
+    let parse = JSON.parse(localStorage.getItem('lastUser'));
+    console.log(parse)
+    document.getElementById("surname").value = parse.surname;
+    document.getElementById("name").value = parse.name;
+    document.getElementById("lastName").value = parse.lastName;
+    document.getElementById("date").value = parse.dateOfBirth;
+    document.getElementById("address").value = parse.address;
+    document.getElementById("mark").value = parse.mark;
 }
