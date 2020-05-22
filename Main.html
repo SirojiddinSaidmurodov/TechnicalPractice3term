@@ -3,11 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная страница</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<h1>Добро пожаловать!</h1>
-<a href="SecondLesson/Calculator.html">Калькулятор</a>
-<p><a href="ThirdLesson/forms.html">Тест</a></p>
-<p><a href="Forthlesson/recommendation.html">Рекомендательная система</a></p>
+
+<div class="alert-primary">
+    <h1 class="alert-heading" align="center">Добро пожаловать!</h1>
+    <div class="container">
+        <div class="card-deck">
+            <div class="card text-primary border-primary bg-light mb-2 align-bottom" style="max-width: 18rem;">
+                <img src="images/calc.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Калькулятор</h5>
+                    <p class="card-text">Простенький калькулятор на HTML5, с использованием встроенных в JavaScript
+                        арифметических операций</p>
+                    <a href="SecondLesson/Calculator.html" class="btn btn-outline-primary">Открыть 🡥</a>
+                </div>
+            </div>
+            <div class="card text-primary border-primary bg-light mb-2" style="max-width: 18rem;">
+                <img class="card-img-top" src="images/test.jpg" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Тест</h5>
+                    <p class="card-text">Проверка знаний студентов, использование <samp>if ... else ... </samp>и<samp>
+                        switch ... case ...</samp> конструкций JavaScript</p>
+                    <a href="ThirdLesson/forms.html" class="position-sticky btn btn-outline-primary">Открыть 🡥</a>
+                </div>
+            </div>
+            <div class="card text-primary border-primary bg-light mb-2" style="max-width: 18rem;">
+                <img class="card-img-top" src="images/st.jpg" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Рекомендательная система</h5>
+                    <p class="card-text">Система для определения рекомендуемого для абитуриента направления по его
+                        оценкам</p>
+                    <a href="Forthlesson/recommendation.html" class="btn btn-outline-primary">Открыть 🡥</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    Автор: Саидмуродов Сирожиддин
+</div>
+
+
 </body>
 </html>
