@@ -13,8 +13,16 @@
             background-color: palegoldenrod;
         }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+<nav aria-label="breadcrumb" class="sticky-top">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../Main.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Тест</li>
+    </ol>
+</nav>
 <H1 align="center">Тест</H1>
 <script src="script.js"></script>
 <form name="test">
@@ -81,7 +89,6 @@
         </tr>
         <tr>
             <td align="right"><input type="button" value="Отправить" onclick="validate()"></td>
-            <td><input type="button" value="Вернуться на главную" onclick="location.href = '../Main.html' "></td>
         </tr>
         <tr>
             <td align="right"><label>Ваш результат: </label></td>
