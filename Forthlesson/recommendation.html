@@ -3,105 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Рекомендательная система</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="all">
-    <style>
-        body {
-            background-color: #e4f9f5;
-            color: #40514e;
-        }
-
-        .input {
-            background-color: #cbf1f5;
-            color: #40514e;
-        }
-
-        .error {
-            color: #d72323;
-            background-color: #feff89;
-        }
-
-        .head {
-            color: #11999e
-        }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
 <script src="script.js"></script>
-<h1 align="center" class="head">Рекомендательная система</h1>
-<form name="form">
-    <table align="center">
-        <tr>
-            <td align="right">
-                Фамилия:
-            </td>
-            <td>
-                <input class="input" type="text" id="surname">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                Имя:
-            </td>
-            <td>
-                <input class="input" id="name">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                Отчество:
-            </td>
-            <td>
-                <input class="input" id="lastName">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                Дата рождения:
-            </td>
-            <td>
-                <input class="input" type="date" id="date">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                Адрес:
-            </td>
-            <td>
-                <input class="input" id="address">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                Оценка на экзамене:
-            </td>
-            <td>
-                <input class="input" id="mark">
-            </td>
-        </tr>
-        <tr>
-            <td align="center">
-                <input class="input" type="button" value="Отправить" onclick="check()">
-            </td>
-            <td align="center">
-                <input class="input" type="reset" value="На главную" onclick="location.href = '../Main.html' ">
-            </td>
-        </tr>
-        <tr>
-            <td align="center"><input class="input" type="button" value="Сохранить" onclick="save()"></td>
-            <td align="center"><input class="input" type="reset" value="Очистить" onclick="clear()"></td>
-        </tr>
-        <tr>
-            <td><label class="error" id="error"></label></td>
-            <td><label id="result"></label></td>
-        </tr>
-        <tr>
-            <td><input type="button" class="input" value="Сохранить пользователя" onclick="saveUser()"></td>
-            <td><p>Предыдущие студенты:</p>
-                <ul></ul>
-            </td>
-        </tr>
-    </table>
-</form>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../Main.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Рекомендательная система</li>
+    </ol>
+</nav>
+<div class="container ">
+    <h1 align="center" class="head">Рекомендательная система</h1>
+    <form name="form">
+        <table align="center">
+            <tr>
+                <td align="right">
+                    Фамилия:
+                </td>
+                <td>
+                    <input class="input" type="text" id="surname">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    Имя:
+                </td>
+                <td>
+                    <input class="input" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    Отчество:
+                </td>
+                <td>
+                    <input class="input" id="lastName">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    Дата рождения:
+                </td>
+                <td>
+                    <input class="input" type="date" id="date">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    Адрес:
+                </td>
+                <td>
+                    <input class="input" id="address">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    Оценка на экзамене:
+                </td>
+                <td>
+                    <input class="input" id="mark">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input class="input" type="button" value="Отправить" onclick="check()">
+                </td>
+            </tr>
+            <tr>
+                <td align="center"><input class="input" type="button" value="Сохранить" onclick="save()"></td>
+                <td align="center"><input class="input" type="reset" value="Очистить" onclick="localStorage.clear()">
+                </td>
+            </tr>
+            <tr>
+                <td><label class="error" id="error"></label></td>
+                <td><label id="result"></label></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="input" value="Сохранить пользователя" onclick="saveUser()"></td>
+                <td><p>Предыдущие студенты:</p>
+                    <ul></ul>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 <script>restore()</script>
 </body>
 </html>

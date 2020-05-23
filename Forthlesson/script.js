@@ -1,3 +1,15 @@
+class User {
+    constructor(surname, name, lastName, dateOfBirth, address, mark, faculty) {
+        this.surname = surname;
+        this.name = name;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
+        this.mark = mark;
+        this.faculty = faculty;
+    }
+}
+
 function check() {
     let surname = document.getElementById("surname").value;
     let name = document.getElementById("name").value;
@@ -49,18 +61,14 @@ function getFaculty(mark) {
     return faculty
 }
 
-function clear() {
-    localStorage.clear()
-}
-
-const ul = document.querySelector('ul')
 
 let users = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
 let data = JSON.parse(localStorage.getItem('items'))
+
+
 data.forEach(item => {
     contentUpdate(item)
 })
-
 
 function save() {
     let res = check()
@@ -72,19 +80,7 @@ function save() {
 function contentUpdate(text) {
     let li = document.createElement('li')
     li.textContent = text
-    ul.append(li)
-}
-
-class User {
-    constructor(surname, name, lastName, dateOfBirth, address, mark, faculty) {
-        this.surname = surname;
-        this.name = name;
-        this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
-        this.address = address;
-        this.mark = mark;
-        this.faculty = faculty;
-    }
+    document.querySelector('ul').append(li)
 }
 
 function saveUser() {
@@ -95,18 +91,18 @@ function saveUser() {
     let address = document.getElementById("address").value;
     let mark = document.getElementById("mark").value;
     let faculty = getFaculty(mark);
-
-    let user = new User(surname, name, lastName, dateOfBirth, address, mark, faculty);
-    localStorage.setItem("lastUser", JSON.stringify(user))
+    localStorage.setItem("lastUser", JSON.stringify(new User(surname, name, lastName, dateOfBirth, address, mark, faculty)))
 }
 
 function restore() {
     let parse = JSON.parse(localStorage.getItem('lastUser'));
-    console.log(parse)
-    document.getElementById("surname").value = parse.surname;
-    document.getElementById("name").value = parse.name;
-    document.getElementById("lastName").value = parse.lastName;
-    document.getElementById("date").value = parse.dateOfBirth;
-    document.getElementById("address").value = parse.address;
-    document.getElementById("mark").value = parse.mark;
+    if (parse !== null) {
+        console.log(parse)
+        document.getElementById("surname").value = parse.surname;
+        document.getElementById("name").value = parse.name;
+        document.getElementById("lastName").value = parse.lastName;
+        document.getElementById("date").value = parse.dateOfBirth;
+        document.getElementById("address").value = parse.address;
+        document.getElementById("mark").value = parse.mark;
+    }
 }
