@@ -10,7 +10,7 @@
         }
 
         body {
-            background-color: palegoldenrod;
+            background-color: antiquewhite;
         }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -23,78 +23,66 @@
         <li class="breadcrumb-item active" aria-current="page">Тест</li>
     </ol>
 </nav>
-<H1 align="center">Тест</H1>
+
 <script src="script.js"></script>
-<form name="test">
-    <table width="50%" align="center">
-        <tr>
-            <td align="right">
-                25 + 41 =
-            </td>
-            <td><input name="t1"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                15 * 9 =
-            </td>
-            <td><input name="t2"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                6 + 13 * 4 - 23 =
-            </td>
-            <td><input name="t3"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                14 <sup>2</sup> =
-            </td>
-            <td><input name="t4"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                11 - 22 =
-            </td>
-            <td><input name="t5"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                81 % 7 =
-            </td>
-            <td><input name="t6"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                243 / 9 =
-            </td>
-            <td><input name="t7"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                ( 2 + 3 <sup>2</sup> ) <sup>3</sup> =
-            </td>
-            <td><input name="t8"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                | 8 - 12 | =
-            </td>
-            <td><input name="t9"></td>
-        </tr>
-        <tr>
-            <td align="right">
-                375 / 15 =
-            </td>
-            <td><input name="t10"></td>
-        </tr>
-        <tr>
-            <td align="right"><input type="button" value="Отправить" onclick="validate()"></td>
-        </tr>
-        <tr>
-            <td align="right"><label>Ваш результат: </label></td>
-            <td align="left"><label id="result" class="result"></label></td>
-        </tr>
-    </table>
-</form>
+<div class="container">
+    <H1 align="center">Тест</H1>
+    <form name="test">
+        <div class="alert alert-secondary" id="t1">25 + 41
+            <hr>
+            <input name="t1">
+        </div>
+
+        <div class="alert alert-secondary" id="t2">15 * 9
+            <hr>
+            <input name="t2">
+        </div>
+
+        <div class="alert alert-secondary" id="t3">6 + 13 * 4 - 23
+            <hr>
+            <input name="t3">
+        </div>
+
+        <div class="alert alert-secondary" id="t4">14 <sup>2</sup>
+            <hr>
+            <input name="t4">
+        </div>
+
+        <div class="alert alert-secondary" id="t5">11 - 22
+            <hr>
+            <input name="t5">
+        </div>
+
+        <div class="alert alert-secondary" id="t6">81 % 7
+            <hr>
+            <input name="t6">
+        </div>
+
+        <div class="alert alert-secondary" id="t7">243 / 9
+            <hr>
+            <input name="t7">
+        </div>
+
+        <div class="alert alert-secondary" id="t8">( 2 + 3 <sup>2</sup> ) <sup>3</sup>
+            <hr>
+            <input name="t8">
+        </div>
+
+        <div class="alert alert-secondary" id="t9">| 8 - 12 |
+            <hr>
+            <input name="t9">
+        </div>
+
+        <div class="alert alert-secondary" id="t10">375 / 15
+            <hr>
+            <input name="t10">
+        </div>
+
+        <input type="button" value="Проверить" onclick="validate()">
+
+        <label>Ваш результат: </label>
+        <label id="result" class="result"></label>
+    </form>
+</div>
 </body>
 </html>
