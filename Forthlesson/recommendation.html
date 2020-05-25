@@ -14,59 +14,99 @@
     </ol>
 </nav>
 
-<div class="container" style="max-width: 500px">
+
+
+<div class="container" style="max-width: 550px">
     <h1 align="center" class="head">Рекомендательная система</h1>
+
     <form name="form">
         <div class="form-group">
             <label for="surname">Фамилия</label>
             <input class="form-control" type="text" id="surname">
+            <div class="invalid-feedback">
+                Введите фамилию!
+            </div>
+            <div class="valid-feedback">
+                OK
+            </div>
         </div>
 
         <div class="form-group">
             <label for="name">Имя</label>
             <input class="form-control" id="name">
+            <div class="invalid-feedback">
+                Введите имя!
+            </div>
+            <div class="valid-feedback">
+                OK
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="lastName">Имя</label>
+            <label for="lastName">Отчество</label>
             <input class="form-control" id="lastName">
+            <div class="invalid-feedback">
+                Введите отчество!
+            </div>
+            <div class="valid-feedback">
+                OK
+            </div>
         </div>
 
         <div class="form-group">
             <label for="date">Дата рождения</label>
             <input class="form-control" type="date" id="date">
+            <div class="invalid-feedback">
+                Укажите дату рождения!
+            </div>
+            <div class="valid-feedback">
+                OK
+            </div>
         </div>
 
         <div class="form-group">
             <label for="name">Адрес</label>
             <input class="form-control" id="address">
+            <div class="invalid-feedback">
+                Введите адрес!
+            </div>
+            <div class="valid-feedback">
+                OK
+            </div>
         </div>
+
         <div class="form-group">
             <label for="name">Оценка на экзамене</label>
             <input class="form-control" id="mark">
+            <div class="invalid-feedback">
+                Укажите оценку!
+            </div>
+            <div class="valid-feedback">
+                OK
+            </div>
         </div>
-        <tr>
-            <td align="center">
-                <input class="input" type="button" value="Отправить" onclick="check()">
-            </td>
-        </tr>
-        <tr>
-            <td align="center"><input class="input" type="button" value="Сохранить" onclick="save()"></td>
-            <td align="center"><input class="input" type="reset" value="Очистить" onclick="localStorage.clear()">
-            </td>
-        </tr>
-        <tr>
-            <td><label class="error" id="error"></label></td>
-            <td><label id="result"></label></td>
-        </tr>
-        <tr>
-            <td><input type="button" class="input" value="Сохранить пользователя" onclick="saveUser()"></td>
-            <td><p>Предыдущие студенты:</p>
-                <ul></ul>
-            </td>
+
+
+        <input class="input btn btn-outline-primary" type="button" value="Отправить" onclick="check()">
+
+        <input class="input btn btn-outline-danger" type="button" value="Сохранить" onclick="save()">
+        <input class="input btn btn-outline-warning" type="reset" value="Очистить" onclick="localStorage.clear()">
+
+        <label id="result"></label>
+
+        <input type="button" class="input btn btn-outline-success" value="Сохранить форму" onclick="saveUser()">
+        <p>Предыдущие студенты:</p>
+        <ul></ul>
+
     </form>
 </div>
 <script src="script.js"></script>
 <script>restore()</script>
+<nav aria-label="breadcrumb" class="align-bottom">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../about.html">О нас</a></li>
+
+    </ol>
+</nav>
 </body>
 </html>

@@ -17,31 +17,44 @@ function check() {
     let dateOfBirth = document.getElementById("date").value;
     let address = document.getElementById("address").value;
     let mark = document.getElementById("mark").value;
-
-    let errorMessage = ''
+    let errors = 0
     if (surname === '') {
-        errorMessage += "Введите фамилию!\n"
+        errors++
+        document.getElementById("surname").className = 'form-control is-invalid'
+    } else {
+        document.getElementById("surname").className = 'form-control is-valid'
     }
     if (name === '') {
-        errorMessage += "Введите имя!\n"
+        errors++
+        document.getElementById("name").className = 'form-control is-invalid'
+    } else {
+        document.getElementById("name").className = 'form-control is-valid'
     }
     if (lastName === '') {
-        errorMessage += "Введите отчество!\n"
+        errors++
+        document.getElementById("lastName").className = 'form-control is-invalid'
+    } else {
+        document.getElementById("lastName").className = 'form-control is-valid'
     }
     if (dateOfBirth === '') {
-        errorMessage += "Укажите дату рождения!\n"
+        errors++
+        document.getElementById("date").className = 'form-control is-invalid'
+    } else {
+        document.getElementById("date").className = 'form-control is-valid'
     }
     if (address === '') {
-        errorMessage += "Введите адрес!\n"
+        errors++
+        document.getElementById("address").className = 'form-control is-invalid'
+    } else {
+        document.getElementById("address").className = 'form-control is-valid'
     }
     if (mark === '') {
-        errorMessage += "Укажите оценку!\n"
-    }
-    if (errorMessage.length > 0) {
-        document.getElementById("error").innerText = errorMessage
-        document.getElementById("result").innerText = ''
+        errors++
+        document.getElementById("mark").className = 'form-control is-invalid'
     } else {
-        document.getElementById("error").innerText = ''
+        document.getElementById("mark").className = 'form-control is-valid'
+    }
+    if (errors === 0) {
         return surname + " " + name[0] + ". " + lastName[0] + ".   ::  " + getFaculty(mark)
     }
 }
