@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
-<body>
+<body style="background: mintcream">
 <nav aria-label="breadcrumb" class="sticky-top">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../Main.html">Главная</a></li>
@@ -16,9 +16,8 @@
 </nav>
 
 
-
 <div class="container  w3-padding-48" style="max-width: 550px">
-    <h1 align="center" class="head">Рекомендательная система</h1>
+    <h1 align="center" class="h1" style="color: steelblue">Рекомендательная система</h1>
 
     <form name="form">
         <div class="form-group">
@@ -92,10 +91,10 @@
 
         <input class="input btn btn-outline-danger" type="button" value="Сохранить" onclick="save()">
         <input class="input btn btn-outline-warning" type="reset" value="Очистить" onclick="localStorage.clear()">
+        <input type="button" class="input btn btn-outline-success" value="Сохранить форму" onclick="saveUser()">
 
         <label id="result"></label>
 
-        <input type="button" class="input btn btn-outline-success" value="Сохранить форму" onclick="saveUser()">
         <p>Предыдущие студенты:</p>
         <ul></ul>
 
