@@ -60,11 +60,10 @@ function getFaculty(mark) {
     document.getElementById("result").innerText = "Ваш результат: " + faculty
     return faculty
 }
-let users = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
-let data = JSON.parse(localStorage.getItem('items'))
 
+users = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
 
-data.forEach(item => {
+users.forEach(item => {
     contentUpdate(item)
 })
 
