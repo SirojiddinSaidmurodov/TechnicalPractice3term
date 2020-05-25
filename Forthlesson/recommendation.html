@@ -7,87 +7,63 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-
-
 <nav aria-label="breadcrumb" class="sticky-top">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../Main.html">Главная</a></li>
         <li class="breadcrumb-item active" aria-current="page">Рекомендательная система</li>
     </ol>
 </nav>
-<div class="container ">
+
+<div class="container" style="max-width: 500px">
     <h1 align="center" class="head">Рекомендательная система</h1>
     <form name="form">
-        <table align="center">
-            <tr>
-                <td align="right">
-                    Фамилия:
-                </td>
-                <td>
-                    <input class="input" type="text" id="surname">
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Имя:
-                </td>
-                <td>
-                    <input class="input" id="name">
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Отчество:
-                </td>
-                <td>
-                    <input class="input" id="lastName">
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Дата рождения:
-                </td>
-                <td>
-                    <input class="input" type="date" id="date">
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Адрес:
-                </td>
-                <td>
-                    <input class="input" id="address">
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Оценка на экзамене:
-                </td>
-                <td>
-                    <input class="input" id="mark">
-                </td>
-            </tr>
-            <tr>
-                <td align="center">
-                    <input class="input" type="button" value="Отправить" onclick="check()">
-                </td>
-            </tr>
-            <tr>
-                <td align="center"><input class="input" type="button" value="Сохранить" onclick="save()"></td>
-                <td align="center"><input class="input" type="reset" value="Очистить" onclick="localStorage.clear()">
-                </td>
-            </tr>
-            <tr>
-                <td><label class="error" id="error"></label></td>
-                <td><label id="result"></label></td>
-            </tr>
-            <tr>
-                <td><input type="button" class="input" value="Сохранить пользователя" onclick="saveUser()"></td>
-                <td><p>Предыдущие студенты:</p>
-                    <ul></ul>
-                </td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label for="surname">Фамилия</label>
+            <input class="form-control" type="text" id="surname">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input class="form-control" id="name">
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Имя</label>
+            <input class="form-control" id="lastName">
+        </div>
+
+        <div class="form-group">
+            <label for="date">Дата рождения</label>
+            <input class="form-control" type="date" id="date">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Адрес</label>
+            <input class="form-control" id="address">
+        </div>
+        <div class="form-group">
+            <label for="name">Оценка на экзамене</label>
+            <input class="form-control" id="mark">
+        </div>
+        <tr>
+            <td align="center">
+                <input class="input" type="button" value="Отправить" onclick="check()">
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><input class="input" type="button" value="Сохранить" onclick="save()"></td>
+            <td align="center"><input class="input" type="reset" value="Очистить" onclick="localStorage.clear()">
+            </td>
+        </tr>
+        <tr>
+            <td><label class="error" id="error"></label></td>
+            <td><label id="result"></label></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="input" value="Сохранить пользователя" onclick="saveUser()"></td>
+            <td><p>Предыдущие студенты:</p>
+                <ul></ul>
+            </td>
     </form>
 </div>
 <script src="script.js"></script>
