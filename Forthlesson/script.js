@@ -74,25 +74,6 @@ function getFaculty(mark) {
     return faculty
 }
 
-users = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
-
-users.forEach(item => {
-    contentUpdate(item)
-})
-
-function save() {
-    let res = check()
-    users.push(res)
-    localStorage.setItem("items", JSON.stringify(users))
-    contentUpdate(res)
-}
-
-function contentUpdate(text) {
-    let li = document.createElement('li')
-    li.textContent = text
-    document.querySelector('ul').append(li)
-}
-
 function saveUser() {
     let surname = document.getElementById("surname").value;
     let name = document.getElementById("name").value;
@@ -101,18 +82,11 @@ function saveUser() {
     let address = document.getElementById("address").value;
     let mark = document.getElementById("mark").value;
     let faculty = getFaculty(mark);
-    localStorage.setItem("lastUser", JSON.stringify(new User(surname, name, lastName, dateOfBirth, address, mark, faculty)))
+    app.students.push(new User(surname, name, lastName, dateOfBirth, address, mark, faculty))
+    localStorage.setItem("items", JSON.stringify(app.students))
 }
 
-function restore() {
-    let parse = JSON.parse(localStorage.getItem('lastUser'));
-    if (parse !== null) {
-        console.log(parse)
-        document.getElementById("surname").value = parse.surname;
-        document.getElementById("name").value = parse.name;
-        document.getElementById("lastName").value = parse.lastName;
-        document.getElementById("date").value = parse.dateOfBirth;
-        document.getElementById("address").value = parse.address;
-        document.getElementById("mark").value = parse.mark;
-    }
+function clean() {
+    localStorage.clear();
+    app.students = []
 }

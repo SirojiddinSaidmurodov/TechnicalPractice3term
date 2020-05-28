@@ -15,9 +15,9 @@
     </ol>
 </nav>
 
-
+<script src="script.js"></script>
 <div class="container  w3-padding-48" style="max-width: 550px">
-    <h1 align="center" class="h1" style="color: steelblue">Рекомендательная система</h1>
+    <h1 align="center" class="h1" style="color: steelblue">Подбор направления обучения</h1>
 
     <form name="form">
         <div class="form-group">
@@ -89,19 +89,55 @@
 
         <input class="input btn btn-outline-primary" type="button" value="Отправить" onclick="check()">
 
-        <input class="input btn btn-outline-danger" type="button" value="Сохранить" onclick="save()">
-        <input class="input btn btn-outline-warning" type="reset" value="Очистить" onclick="localStorage.clear()">
-        <input type="button" class="input btn btn-outline-success" value="Сохранить форму" onclick="saveUser()">
+        <input class="input btn btn-outline-danger" type="button" value="Сохранить" onclick="saveUser()">
+        <input class="input btn btn-outline-warning" type="reset" value="Очистить" onclick="clean()">
 
         <label id="result"></label>
-
-        <p>Предыдущие студенты:</p>
-        <ul></ul>
-
     </form>
 </div>
-<script src="script.js"></script>
-<script>restore()</script>
+<h3>Предыдущие студенты:</h3>
+
+<div id="list" class="card-columns">
+    <div class="card" v-for="student in students">
+        <div class="card-body">
+            <h5 class="card-title">{{student.name}}</h5>
+            <h5 class="card-title">{{student.surname}}</h5>
+            <p class="card-text">{{student.faculty}}</p>
+            <a @click="restore(student)" class="btn btn-outline-primary">Посмотреть</a>
+            <a @click="remove(student)" class="btn btn-outline-primary">Удалить</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    const app = new Vue({
+        el: '#list',
+        data: {
+            students: localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+        },
+        methods: {
+            restore: function (user) {
+                console.log(user);
+                document.getElementById("surname").value = user.surname;
+                document.getElementById("name").value = user.name;
+                document.getElementById("lastName").value = user.lastName;
+                document.getElementById("date").value = user.dateOfBirth;
+                document.getElementById("address").value = user.address;
+                document.getElementById("mark").value = user.mark;
+            },
+            remove: function (user) {
+                console.log(user);
+                app.students = app.students.filter(element =>
+                    !(element.surname == user.surname & element.name == user.name
+                        & element.lastName == user.lastName & element.dateOfBirth == user.dateOfBirth
+                        & element.address == user.address & element.mark == user.mark
+                        & element.faculty == user.faculty))
+                localStorage.setItem("items", JSON.stringify(app.students))
+            }
+        }
+    })
+</script>
 <nav aria-label="breadcrumb" class="align-bottom">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../about.html">О нас</a></li>
