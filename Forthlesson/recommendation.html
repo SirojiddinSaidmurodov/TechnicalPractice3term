@@ -21,8 +21,7 @@
     <div class="container  w3-padding-64" style="max-width: 500px;min-width: 350px;padding: 50px">
         <form name="form">
             <div class="form-group">
-                <label for="surname">Фамилия</label>
-                <input class="form-control" type="text" id="surname">
+                <input class="form-control" type="text" id="surname" placeholder="Фамилия">
                 <div class="invalid-feedback">
                     Введите фамилию!
                 </div>
@@ -32,8 +31,7 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Имя</label>
-                <input class="form-control" id="name">
+                <input class="form-control" id="name" placeholder="Имя">
                 <div class="invalid-feedback">
                     Введите имя!
                 </div>
@@ -43,8 +41,7 @@
             </div>
 
             <div class="form-group">
-                <label for="lastName">Отчество</label>
-                <input class="form-control" id="lastName">
+                <input class="form-control" id="lastName" placeholder="Отчество">
                 <div class="invalid-feedback">
                     Введите отчество!
                 </div>
@@ -65,8 +62,7 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Адрес</label>
-                <input class="form-control" id="address">
+                <input class="form-control" id="address" placeholder="Адрес">
                 <div class="invalid-feedback">
                     Введите адрес!
                 </div>
@@ -76,10 +72,28 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Оценка на экзамене</label>
-                <input class="form-control" id="mark">
+                <label for="mark1">Оценки на экзамене</label>
+                <input class="form-control" id="mark1" placeholder="Русский язык">
                 <div class="invalid-feedback">
-                    Укажите оценку!
+                    Укажите правильную оценку!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="mark2" placeholder="Математика">
+                <div class="invalid-feedback">
+                    Укажите правильную оценку!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="mark3" placeholder="Информатика">
+                <div class="invalid-feedback">
+                    Укажите правильную оценку!
                 </div>
                 <div class="valid-feedback">
                     OK
@@ -88,7 +102,7 @@
 
             <input class="input btn btn-outline-primary" type="button" value="Отправить" onclick="check()">
             <input class="input btn btn-outline-success" type="button" value="Сохранить" onclick="saveUser()">
-            <input class="input btn btn-outline-danger" type="reset" value="Очистить форму">
+            <input class="input btn btn-outline-danger" type="reset" value="Очистить форму" onclick="todefault()">
 
             <label id="result"></label>
         </form>
@@ -125,14 +139,18 @@
                 document.getElementById("lastName").value = user.lastName;
                 document.getElementById("date").value = user.dateOfBirth;
                 document.getElementById("address").value = user.address;
-                document.getElementById("mark").value = user.mark;
+                document.getElementById("mark1").value = user.mark1;
+                document.getElementById("mark2").value = user.mark2;
+                document.getElementById("mark3").value = user.mark3;
+                document.getElementById("result").innerText = "Ваш результат: " + user.faculty;
             },
             remove: function (user) {
                 console.log(user);
                 app.students = app.students.filter(element =>
                     !(element.surname == user.surname & element.name == user.name
                         & element.lastName == user.lastName & element.dateOfBirth == user.dateOfBirth
-                        & element.address == user.address & element.mark == user.mark
+                        & element.address == user.address & element.mark1 == user.mark1
+                        & element.mark2 == user.mark2 & element.mark3 == user.mark3
                         & element.faculty == user.faculty))
                 localStorage.setItem("items", JSON.stringify(app.students))
             }
