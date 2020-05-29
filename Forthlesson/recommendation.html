@@ -14,101 +14,102 @@
         <li class="breadcrumb-item active" aria-current="page">Рекомендательная система</li>
     </ol>
 </nav>
-
+<h1 align="center" class="h1" style="color: steelblue">Подбор направления обучения</h1>
 <script src="script.js"></script>
-<div class="container  w3-padding-48" style="max-width: 550px">
-    <h1 align="center" class="h1" style="color: steelblue">Подбор направления обучения</h1>
 
-    <form name="form">
-        <div class="form-group">
-            <label for="surname">Фамилия</label>
-            <input class="form-control" type="text" id="surname">
-            <div class="invalid-feedback">
-                Введите фамилию!
+<div class="d-flex justify-content-around">
+    <div class="container  w3-padding-64" style="max-width: 500px;min-width: 350px;padding: 50px">
+        <form name="form">
+            <div class="form-group">
+                <label for="surname">Фамилия</label>
+                <input class="form-control" type="text" id="surname">
+                <div class="invalid-feedback">
+                    Введите фамилию!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
             </div>
-            <div class="valid-feedback">
-                OK
+
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input class="form-control" id="name">
+                <div class="invalid-feedback">
+                    Введите имя!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Отчество</label>
+                <input class="form-control" id="lastName">
+                <div class="invalid-feedback">
+                    Введите отчество!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Дата рождения</label>
+                <input class="form-control" type="date" id="date">
+                <div class="invalid-feedback">
+                    Укажите дату рождения!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Адрес</label>
+                <input class="form-control" id="address">
+                <div class="invalid-feedback">
+                    Введите адрес!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Оценка на экзамене</label>
+                <input class="form-control" id="mark">
+                <div class="invalid-feedback">
+                    Укажите оценку!
+                </div>
+                <div class="valid-feedback">
+                    OK
+                </div>
+            </div>
+
+            <input class="input btn btn-outline-primary" type="button" value="Отправить" onclick="check()">
+            <input class="input btn btn-outline-success" type="button" value="Сохранить" onclick="saveUser()">
+            <input class="input btn btn-outline-danger" type="reset" value="Очистить форму">
+
+            <label id="result"></label>
+        </form>
+    </div>
+    <div class="container w3-padding-48">
+        <h3>Предыдущие студенты:</h3>
+        <div id="list" class="card-columns">
+            <h4 v-if="students.length===0" style="color: red;padding: 20px">В базе нет записей</h4>
+            <div class="card" v-for="student in students">
+                <div class="card-body">
+                    <h5 class="card-title">{{student.name}}</h5>
+                    <h5 class="card-title">{{student.surname}}</h5>
+                    <p class="card-text">{{student.faculty}}</p>
+                    <a @click="restore(student)" class="btn btn-outline-primary">Посмотреть</a>
+                    <a @click="remove(student)" class="btn btn-outline-primary">Удалить</a>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="name">Имя</label>
-            <input class="form-control" id="name">
-            <div class="invalid-feedback">
-                Введите имя!
-            </div>
-            <div class="valid-feedback">
-                OK
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="lastName">Отчество</label>
-            <input class="form-control" id="lastName">
-            <div class="invalid-feedback">
-                Введите отчество!
-            </div>
-            <div class="valid-feedback">
-                OK
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="date">Дата рождения</label>
-            <input class="form-control" type="date" id="date">
-            <div class="invalid-feedback">
-                Укажите дату рождения!
-            </div>
-            <div class="valid-feedback">
-                OK
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="name">Адрес</label>
-            <input class="form-control" id="address">
-            <div class="invalid-feedback">
-                Введите адрес!
-            </div>
-            <div class="valid-feedback">
-                OK
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="name">Оценка на экзамене</label>
-            <input class="form-control" id="mark">
-            <div class="invalid-feedback">
-                Укажите оценку!
-            </div>
-            <div class="valid-feedback">
-                OK
-            </div>
-        </div>
-
-
-        <input class="input btn btn-outline-primary" type="button" value="Отправить" onclick="check()">
-
-        <input class="input btn btn-outline-danger" type="button" value="Сохранить" onclick="saveUser()">
-        <input class="input btn btn-outline-warning" type="reset" value="Очистить" onclick="clean()">
-
-        <label id="result"></label>
-    </form>
-</div>
-<h3>Предыдущие студенты:</h3>
-
-<div id="list" class="card-columns">
-    <div class="card" v-for="student in students">
-        <div class="card-body">
-            <h5 class="card-title">{{student.name}}</h5>
-            <h5 class="card-title">{{student.surname}}</h5>
-            <p class="card-text">{{student.faculty}}</p>
-            <a @click="restore(student)" class="btn btn-outline-primary">Посмотреть</a>
-            <a @click="remove(student)" class="btn btn-outline-primary">Удалить</a>
-        </div>
+        <input class="input btn btn-outline-danger" type="reset" value="Удалить все записи" onclick="clean()">
     </div>
 </div>
-
 <script src="https://unpkg.com/vue"></script>
 <script>
     const app = new Vue({

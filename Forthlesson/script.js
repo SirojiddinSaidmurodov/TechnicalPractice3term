@@ -75,6 +75,7 @@ function getFaculty(mark) {
 }
 
 function saveUser() {
+    check()
     let surname = document.getElementById("surname").value;
     let name = document.getElementById("name").value;
     let lastName = document.getElementById("lastName").value;
